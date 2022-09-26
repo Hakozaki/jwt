@@ -1,0 +1,6 @@
+{
+    "java.project.sourcePaths": [
+        "jwt/src/main/java/br/com/marcushakozaki/jwt"
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive"
+}
