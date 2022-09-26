@@ -1,9 +1,14 @@
 package br.com.marcushakozaki.jwt.v1.usuarios;
 
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import br.com.marcushakozaki.jwt.v1.usuarios.dto.UsuarioView;
 import br.com.marcushakozaki.jwt.v1.usuarios.entidade.Usuario;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
+
+    Optional<UsuarioView> findById(Long id, Class<UsuarioView> classe);
 
 }
