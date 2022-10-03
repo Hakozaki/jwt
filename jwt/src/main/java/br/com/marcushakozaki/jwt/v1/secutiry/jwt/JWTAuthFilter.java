@@ -51,14 +51,11 @@ public class JWTAuthFilter extends UsernamePasswordAuthenticationFilter {
                             usuario.getSenha(),
                             new ArrayList<>()));
 
-        } catch (StreamReadException e) {
-            // e.printStackTrace();
+        } catch (StreamReadException e) {            
             throw new RuntimeException("Falha ao autenticar usuário : StreamReadException");
-        } catch (DatabindException e) {
-            // e.printStackTrace();
+        } catch (DatabindException e) {            
             throw new RuntimeException("Falha ao autenticar usuário : DatabindException");
-        } catch (IOException e) {
-            // e.printStackTrace();
+        } catch (IOException e) {            
             throw new RuntimeException("Falha ao autenticar usuário : IOException");
         }
     }

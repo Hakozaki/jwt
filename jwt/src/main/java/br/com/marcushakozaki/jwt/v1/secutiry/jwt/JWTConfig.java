@@ -1,6 +1,7 @@
 package br.com.marcushakozaki.jwt.v1.secutiry.jwt;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -30,16 +31,15 @@ public class JWTConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf()
-                .disable()
-                .antMatcher("/login")
-                .authorizeRequests()
-                .anyRequest().authenticated()
-                .and()
-                // .antMatchers(HttpMethod.POST, "/login")
-                .addFilter(new JWTAuthFilter(authenticationManager()))
-                .addFilter(new JWTValidateFilter(authenticationManager()))
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+        http
+                .csrf().disable()
+                .authorizeRequests();
+                //.antMatchers(HttpMethod.POST, "/login");
+                //.anyRequest().authenticated()
+                //.and()
+                //.addFilter(new JWTAuthFilter(authenticationManager()))
+                //.addFilter(new JWTValidateFilter(authenticationManager()))
+                //.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
     }
 
